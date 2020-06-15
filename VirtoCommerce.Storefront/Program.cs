@@ -1,7 +1,10 @@
 using System.IO;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+
+[assembly: InternalsVisibleTo("VirtoCommerce.Storefront.Tests")]
 
 namespace VirtoCommerce.Storefront
 {
