@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Xml.XPath;
+using Newtonsoft.Json.Linq;
 using Scriban;
 using VirtoCommerce.Storefront.Model.Common;
 
@@ -690,6 +691,10 @@ namespace VirtoCommerce.LiquidThemeEngine.Filters
 
         public static object ToNumber(this object s)
         {
+            if (s == null)
+            {
+                return 0;
+            }
             if (s is double)
             {
                 return s;
@@ -732,7 +737,12 @@ namespace VirtoCommerce.LiquidThemeEngine.Filters
                     return Convert.ToInt32(match.Groups[1].Value);
                 }
             }
+            else if (s is JValue json)
+            {
+                return ToNumber(json.Value.ToString());
+            }
 
+            //throw new ArgumentException("Unknown argument type");
             return 0;
         }
 
