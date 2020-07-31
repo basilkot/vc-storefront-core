@@ -22,5 +22,13 @@ namespace VirtoCommerce.Storefront.Controllers
             Task.Run(() => _feedbackService.GetItem("TargetAccountV2").SendRequest($"CompanyName={companyName}", $"Email={email}"));
             return Ok();
         }
+
+
+        [HttpPost("location")]
+        public IActionResult Location(string ip, string email)
+        {
+            Task.Run(() => _feedbackService.GetItem("Location").SendRequest($"ip={ip}", $"Email={email}"));
+            return Ok();
+        }
     }
 }
