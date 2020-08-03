@@ -30,5 +30,12 @@ namespace VirtoCommerce.Storefront.Controllers
             Task.Run(() => _feedbackService.GetItem("Location").SendRequest($"ip={ip}", $"Email={email}"));
             return Ok();
         }
+
+        [HttpPost("gatedAssets")]
+        public IActionResult GatedAssets(string assetId, string email)
+        {
+            Task.Run(() => _feedbackService.GetItem("GatedAssets").SendRequest($"assetId={assetId}", $"Email={email}"));
+            return Ok();
+        }
     }
 }

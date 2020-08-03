@@ -16,6 +16,7 @@ namespace VirtoCommerce.Storefront.Domain
         {
             _factory.CreateItem("TargetAccountV2");
             _factory.CreateItem("Location");
+            _factory.CreateItem("GatedAssets");
         }
 
         public FeedbackItem GetItem(string name)
